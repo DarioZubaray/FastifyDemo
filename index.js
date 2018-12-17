@@ -8,7 +8,7 @@ const swagger = require('./config/swagger');
 const port = process.env.PORT || 3000;
 const urlDB = 'mongodb://localhost/mygarage';
 
-mongoose.connect(urlDB)
+mongoose.connect(urlDB, { useNewUrlParser: true })
  .then(() => console.log('MongoDB connected!'))
  .catch(err => console.log(err));
 
