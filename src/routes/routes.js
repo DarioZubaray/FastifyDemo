@@ -1,4 +1,4 @@
-const carController = require('../controllers/carController');
+const carController = require('../controller/CarController');
 
 const routes = [
   {
@@ -15,7 +15,7 @@ const routes = [
     method: 'POST',
     url: '/api/cars',
     handler: carController.addCar,
-    schema: documentation.addCarSchema
+    schema: carController.addCarSchema
   },
   {
     method: 'PUT',

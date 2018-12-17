@@ -1,5 +1,5 @@
 const boom = require('boom');
-const Car = require('../models/Car');
+const Car = require('../model/Car');
 
 // Get all cars
 exports.getCars = async (req, res) => {
