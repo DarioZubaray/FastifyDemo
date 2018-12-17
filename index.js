@@ -2,6 +2,7 @@ const fastify = require('fastify')({
   logger: true
 });
 const mongoose = require('mongoose');
+const routes = require('./src/routes')
 
 const port = process.env.PORT || 3000;
 const urlDB = ‘mongodb://localhost/mygarage’;
@@ -9,6 +10,10 @@ const urlDB = ‘mongodb://localhost/mygarage’;
 mongoose.connect(urlDB)
  .then(() => console.log(‘MongoDB connected…’))
  .catch(err => console.log(err));
+
+routes.forEach((route, index) => {
+ fastify.route(route)
+});
 
 fastify.get('/', async (request, reply) => {
   return { hello: 'world' }
